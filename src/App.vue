@@ -1,23 +1,37 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">商品</router-link> |
+      <router-link to="/about">购物车</router-link>
     </div>
-    <router-view/>
+    <transition enter-active-class="animated tada" leave-active-class="animated bounceOutRight" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
+<script>
+
+import "../public/reset -yidong.css"
+
+export default {
+  
+}
+</script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+html{
+  font-size: 26.67vw;
 }
+
 #nav {
-  padding: 30px;
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  text-align: center;
+  background-color: #fff;
 }
 
 #nav a {

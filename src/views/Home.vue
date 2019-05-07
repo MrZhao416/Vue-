@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <ul >
+        <li  v-for="(subitem,index) in goodslist.list" :key="index">
+          <img v-bind:src='subitem.img' alt="">
+          <div>
+            <h2>{{subitem.name}}</h2>
+            <p>{{subitem.info}}</p>
+            <p>￥{{subitem.price}}</p>
+            <button @click="addShoplist(subitem)">购物车</button>
+          </div>
+          
+        </li>
+      </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import {mapState,mapMutations,mapActions} from 'vuex'
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
+  computed:{
+    ...mapState(["goodslist","list"]),
+    ...mapState(["shoplist","shoplist"]),
+  },
+  methods:{
+    ...mapMutations(["addShoplist"])
+  },
+    
+  
 }
 </script>
+
+<style>
+
+</style>
